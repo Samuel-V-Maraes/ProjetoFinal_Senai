@@ -1,4 +1,6 @@
-
+<?php
+$ano_atual = date('Y'); // gera o ano automaticamente
+?>
 
 <footer class="af-footer">
     <div class="af-footer__container">
