@@ -1,17 +1,5 @@
 
-/*
- * Validação do formulário "Fale Conosco" (Alta Forma).
- *
- * Casa com o HTML real: form sem id próprio (selecionado por .form-af),
- * inputs com id/name = nome, email, telefone, assunto, mensagem.
- *
- * Estratégia:
- * 1. VALIDATORS é a única fonte de verdade das regras por campo.
- * 2. validateField() é genérica: descobre o campo pelo atributo "name"
- *    e aplica a classe/estilo do Bootstrap (is-invalid / is-valid).
- * 3. Mesma função roda no "blur" (tempo real) e no "submit".
- * 4. Regex compiladas uma única vez, fora da função.
- */
+
  
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".form-af");
@@ -20,9 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const PHONE_RE = /^\(?\d{2}\)?\s?9?\d{4}-?\d{4}$/;
  
-  // MASKS: uma função por campo que precisa de formatação em tempo real.
-  // Só telefone precisa aqui; se um campo não tiver máscara, o input
-  // segue digitando livre, sem transformação nenhuma.
+
   const MASKS = {
     telefone: (v) => {
       let digits = v.replace(/\D/g, "").slice(0, 11); // só números, máx. 11 dígitos (DDD + 9 dígitos)
@@ -42,8 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
  
-  // Aplica a máscara do campo (se existir), mantendo o cursor no fim.
-  // Evita loop infinito comparando se o valor realmente mudou.
+ 
   function applyMask(input) {
     const mask = MASKS[input.name];
     if (!mask) return;
@@ -79,8 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
  
-  // Garante que cada input tenha uma div .invalid-feedback logo depois dele,
-  // mesmo que o PHP ainda não tenha sido atualizado com elas manualmente.
+
   function ensureFeedbackEl(input) {
     let feedback = input.nextElementSibling;
     if (!feedback || !feedback.classList.contains("invalid-feedback")) {
@@ -126,8 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .every(Boolean);
  
     if (allValid) {
-      // Envio real: fetch/AJAX ou form.submit() para o PHP de processamento
-      // fetch('processar-contato.php', { method: 'POST', body: new FormData(form) })
+
       form.reset();
       fields.forEach((f) => f.classList.remove("is-valid"));
 
