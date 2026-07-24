@@ -1,14 +1,3 @@
-/*
- * Carrossel automático dos banners (hero) — Alta Forma.
- *
- * Funciona em qualquer página: procura todo elemento ".hero" que
- * contenha 2 ou mais ".hero-slide" dentro dele e alterna a classe
- * "is-active" entre eles em intervalos regulares. A transição de
- * opacidade (o efeito de fade) é feita pelo CSS, não por aqui.
- *
- * Se o hero tiver só 1 slide (ou nenhum), o script não faz nada —
- * a imagem de fundo fica estática, sem erro.
- */
 
 document.addEventListener("DOMContentLoaded", () => {
   const INTERVAL_MS = 5000; // tempo entre as trocas de imagem
