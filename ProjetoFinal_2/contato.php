@@ -1,8 +1,4 @@
-<?php
-// O require foi REMOVIDO daqui. Arquivo .js nunca deve ser incluído
-// com require/include do PHP — isso derrama JS puro no topo da página,
-// antes do <!DOCTYPE>, e quebra o HTML inteiro.
-?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
