@@ -1,3 +1,7 @@
+<?php
+$paginaAtual = basename($_SERVER['PHP_SELF']);
+?>
+
     <style>
         .navbar-custom{
             background:#000;
@@ -52,9 +56,7 @@
             }
         }
     </style>
-</head>
 
-<body>
 
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
     <div class="container-fluid">
@@ -69,9 +71,7 @@
                 aria-controls="menuTopo"
                 aria-expanded="false"
                 aria-label="Abrir menu">
-
             <span class="navbar-toggler-icon"></span>
-
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="menuTopo">
@@ -79,19 +79,27 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.php">Home</a>
+                    <a class="nav-link <?= ($paginaAtual == 'index.php') ? 'active' : ''; ?>" href="index.php">
+                        Home
+                    </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="academia.php">Nossa Academia</a>
+                    <a class="nav-link <?= ($paginaAtual == 'academia.php') ? 'active' : ''; ?>" href="academia.php">
+                        Nossa Academia
+                    </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="produtos.php">Nossos Produtos</a>
+                    <a class="nav-link <?= ($paginaAtual == 'produtos.php') ? 'active' : ''; ?>" href="produtos.php">
+                        Nossos Produtos
+                    </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="contato.php">Fale Conosco</a>
+                    <a class="nav-link <?= ($paginaAtual == 'contato.php') ? 'active' : ''; ?>" href="contato.php">
+                        Fale Conosco
+                    </a>
                 </li>
 
             </ul>
